@@ -1,6 +1,6 @@
 package com.ucreativa.jugabilidad.entities;
 
-public abstract  class Persona {
+public class Persona {
 
     private String nombre;
     private String correo;

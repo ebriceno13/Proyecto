@@ -4,18 +4,18 @@ import java.util.Date;
 
 public class BitacoraJuegos {
 
-    private Persona perdona;
+    private Persona persona;
     private String consola;
     private Date fechaCompra;
 
-    public BitacoraJuegos(Persona perdona, String consola, Date fechaCompra) {
-        this.perdona = perdona;
+    public BitacoraJuegos(Persona persona, String consola, Date fechaCompra) {
+        this.persona = persona;
         this.consola = consola;
         this.fechaCompra = fechaCompra;
     }
 
     public Persona getPerdona() {
-        return perdona;
+        return persona;
     }
 
     public String getConsola() {
