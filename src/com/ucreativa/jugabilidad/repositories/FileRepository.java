@@ -1,5 +1,6 @@
 package com.ucreativa.jugabilidad.repositories;
 
+import com.ucreativa.jugabilidad.entities.Juego;
 import com.ucreativa.jugabilidad.entities.Persona;
 
 import java.io.*;
@@ -13,8 +14,7 @@ public class FileRepository implements Repository{
     private final String ruta = "archivo.txt";
 
     @Override
-    public void save(Persona persona, String consola, Date fechaCompra) throws IOException {
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM--YYYY hh:mm:ss");
+    public void save(Persona persona, Juego juego) throws IOException {
 
         try{
 
@@ -26,7 +26,7 @@ public class FileRepository implements Repository{
 
             FileWriter fw = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.append(persona.getNombre() + " - " + " Juego: " + consola + " - " + format.format(fechaCompra) + "\n");
+            bw.append(persona.getNombre() + juego.getNombreJuego() + "\n");
             bw.close();
         } catch (Exception e) {
             e.printStackTrace();

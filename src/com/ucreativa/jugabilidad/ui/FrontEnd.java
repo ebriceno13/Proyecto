@@ -6,6 +6,7 @@ import com.ucreativa.jugabilidad.services.Service;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class FrontEnd extends JFrame {
 
@@ -50,18 +51,67 @@ public class FrontEnd extends JFrame {
         JTextField txtNombreJuego = new JTextField();
         JTextField txtPrecio = new JTextField();
         JTextField txtCategoria = new JTextField();
-        JCheckBox txtRiesgo = new JCheckBox();
+        JCheckBox txtCompletado = new JCheckBox();
         JTextField txtConsola = new JTextField();
 
         JButton salvar = new JButton("Salvar");
 
-        BitacoraJuegos service;
-        salvar.addActionListener((AbstractAction) (e){
+        salvar.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-                Service service = new BitacoraJuegos((new FileRepository()));
-                service.save
+                BitacoraJuegos service= new BitacoraJuegos(new FileRepository());
+                service.save(txtNombre.getText(),
+                        txtCorreo.getText(),
+                        txtEdad.getText(),
+                        txtNombre.getText(),
+                        txtNombreJuego.getText(),
+                        txtPrecio.getText(),
+                        txtCategoria.getText(),
+                        txtConsola.getText());
 
+                txtNombre.setText("");
+                txtCorreo.setText("");
+                txtEdad.setText("");
+                txtNombreJuego.setText("");
+                txtPrecio.setText("");
+                txtCategoria.setText("");
+                txtConsola.setText("");
+
+                String reporte = String.join("\n", service.get());
+                JOptionPane.showMessageDialog(((JButton)e.getSource()).getParent(), reporte);
+            }
         });
+
+        //se agrega al UI
+
+        this.agregarComponente(lblNombre);
+        this.agregarComponente(txtNombre);
+
+        this.agregarComponente(lblCorreo);
+        this.agregarComponente(txtCorreo);
+
+        this.agregarComponente(lblEdad);
+        this.agregarComponente(txtEdad);
+
+        this.agregarComponente(lblEdad);
+        this.agregarComponente(txtEdad);
+
+        this.agregarComponente(lblNombreJuego);
+        this.agregarComponente(txtNombreJuego);
+
+        this.agregarComponente(lblPrecio);
+        this.agregarComponente(txtPrecio);
+
+        this.agregarComponente(lblCategoria);
+        this.agregarComponente(txtCategoria);
+
+        this.agregarComponente(lblConsola);
+        this.agregarComponente(txtConsola);
+
+        this.agregarComponente(salvar);
+
+        }
     }
 
 

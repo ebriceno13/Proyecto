@@ -27,7 +27,7 @@ public class Service {
         juego = new Juego(nombreJuego, precio, categoria, completado);
 
         try {
-            this.repository.save(persona, consola, new Date());
+            this.repository.save(persona, juego);
         } catch (IOException e) {
             e.printStackTrace();
         }

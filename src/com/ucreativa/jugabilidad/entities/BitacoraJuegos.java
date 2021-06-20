@@ -1,28 +1,26 @@
 package com.ucreativa.jugabilidad.entities;
 
+import com.ucreativa.jugabilidad.repositories.FileRepository;
+
 import java.util.Date;
 
 public class BitacoraJuegos {
 
     private Persona persona;
-    private String consola;
-    private Date fechaCompra;
+    private Juego juego;
 
-    public BitacoraJuegos(Persona persona, String consola, Date fechaCompra) {
+    public BitacoraJuegos(FileRepository repository) {
         this.persona = persona;
-        this.consola = consola;
-        this.fechaCompra = fechaCompra;
+        this.juego = juego;
     }
 
-    public Persona getPerdona() {
+
+
+    public Persona getPersona() {
         return persona;
     }
 
-    public String getConsola() {
-        return consola;
-    }
-
-    public Date getFechaCompra() {
-        return fechaCompra;
+    public Juego getJuego(){
+        return juego;
     }
 }
