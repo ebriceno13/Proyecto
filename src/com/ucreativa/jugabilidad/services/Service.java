@@ -17,10 +17,11 @@ public class Service {
     }
 
     public void save(String nombre, String correo, String txtEdad,
-                     String nombreJuego, int precio, String categoria,
-                     boolean completado, String consola){
+                     String nombreJuego, String txtPrecio, String categoria,
+                     boolean completado){
 
         int edad = Integer.parseInt(txtEdad);
+        int precio = Integer.parseInt(txtPrecio);
         Persona persona;
         Juego juego;
         persona = new Persona(nombre, correo, edad);

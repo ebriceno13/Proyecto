@@ -26,7 +26,7 @@ public class FileRepository implements Repository{
 
             FileWriter fw = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.append(persona.getNombre() + juego.getNombreJuego() + "\n");
+            bw.append(persona.getNombre() + " " + juego.getNombreJuego() + "\n");
             bw.close();
         } catch (Exception e) {
             e.printStackTrace();

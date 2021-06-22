@@ -23,8 +23,8 @@ public class FrontEnd extends JFrame {
 
     private void construccionPantalla(){
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        super.setSize(800 , 400);
-        super.setLayout(new GridLayout(5 , 2));
+        super.setSize(600 , 400);
+        super.setLayout(new GridLayout(4 , 2));
     }
 
     private void agregarComponente(Component componente) {
@@ -52,7 +52,7 @@ public class FrontEnd extends JFrame {
         JTextField txtPrecio = new JTextField();
         JTextField txtCategoria = new JTextField();
         JCheckBox txtCompletado = new JCheckBox();
-        JTextField txtConsola = new JTextField();
+
 
         JButton salvar = new JButton("Salvar");
 
@@ -60,15 +60,14 @@ public class FrontEnd extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                BitacoraJuegos service= new BitacoraJuegos(new FileRepository());
+                Service service= new Service(new FileRepository());
                 service.save(txtNombre.getText(),
                         txtCorreo.getText(),
                         txtEdad.getText(),
-                        txtNombre.getText(),
                         txtNombreJuego.getText(),
                         txtPrecio.getText(),
                         txtCategoria.getText(),
-                        txtConsola.getText());
+                        txtCompletado.isSelected());
 
                 txtNombre.setText("");
                 txtCorreo.setText("");
@@ -76,7 +75,7 @@ public class FrontEnd extends JFrame {
                 txtNombreJuego.setText("");
                 txtPrecio.setText("");
                 txtCategoria.setText("");
-                txtConsola.setText("");
+                txtCompletado.setText("");
 
                 String reporte = String.join("\n", service.get());
                 JOptionPane.showMessageDialog(((JButton)e.getSource()).getParent(), reporte);
@@ -106,8 +105,8 @@ public class FrontEnd extends JFrame {
         this.agregarComponente(lblCategoria);
         this.agregarComponente(txtCategoria);
 
-        this.agregarComponente(lblConsola);
-        this.agregarComponente(txtConsola);
+        this.agregarComponente(lblCompletado);
+        this.agregarComponente(txtCompletado);
 
         this.agregarComponente(salvar);
 
@@ -115,4 +114,4 @@ public class FrontEnd extends JFrame {
     }
 
 
-}
+

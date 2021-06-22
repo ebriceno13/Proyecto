@@ -31,4 +31,8 @@ public class Juego {
     public boolean isCompletado() {
         return completado;
     }
+
+    public String toString() {
+        return this.getNombreJuego();
+    }
 }

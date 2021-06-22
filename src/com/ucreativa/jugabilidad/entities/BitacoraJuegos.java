@@ -2,8 +2,6 @@ package com.ucreativa.jugabilidad.entities;
 
 import com.ucreativa.jugabilidad.repositories.FileRepository;
 
-import java.util.Date;
-
 public class BitacoraJuegos {
 
     private Persona persona;
